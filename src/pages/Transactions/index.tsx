@@ -1,8 +1,8 @@
-import { Header } from "../../components/Header";
-import { Summary } from "../../components/Summary";
-import { SearchForm } from "./components/SearchForm";
-import { useTransaction } from "../../context/TransactionsContext";
-import { formatCurrency } from "../../utils/formatCurrency";
+import { Header } from '../../components/Header'
+import { Summary } from '../../components/Summary'
+import { SearchForm } from './components/SearchForm'
+import { useTransaction } from '../../context/TransactionsContext'
+import { formatCurrency } from '../../utils/formatCurrency'
 
 import {
   TransactionsContainer,
@@ -12,11 +12,11 @@ import {
   Td,
   TransactionsContent,
   PriceHighlight,
-} from "./styles";
-import { formatData } from "../../utils/formatData";
+} from './styles'
+import { formatData } from '../../utils/formatData'
 
 export function Transactions() {
-  const { transactions } = useTransaction();
+  const { transactions } = useTransaction()
 
   return (
     <TransactionsContainer>
@@ -33,7 +33,7 @@ export function Transactions() {
                   <Td width={50}>{transaction.description}</Td>
                   <Td>
                     <PriceHighlight variant={transaction.type}>
-                      {transaction.type === "outcome" && "- "}
+                      {transaction.type === 'outcome' && '- '}
                       {formatCurrency(transaction.price)}
                     </PriceHighlight>
                   </Td>
@@ -45,5 +45,5 @@ export function Transactions() {
         </TransactionsTable>
       </TransactionsContent>
     </TransactionsContainer>
-  );
+  )
 }

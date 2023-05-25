@@ -1,5 +1,5 @@
-import { useSummary } from "../../hooks/useSummary";
-import { formatCurrency } from "../../utils/formatCurrency";
+import { useSummary } from '../../hooks/useSummary'
+import { formatCurrency } from '../../utils/formatCurrency'
 import {
   SummaryContainer,
   CardSummary,
@@ -9,10 +9,10 @@ import {
   IconArrowCircleUp,
   IconArrowCircleDown,
   IconCurrencyDollar,
-} from "./styles";
+} from './styles'
 
 export function Summary() {
-  const summary = useSummary();
+  const summary = useSummary()
 
   return (
     <SummaryContainer>
@@ -43,5 +43,5 @@ export function Summary() {
         <ValueSummary>{formatCurrency(summary.total)}</ValueSummary>
       </CardSummary>
     </SummaryContainer>
-  );
+  )
 }
