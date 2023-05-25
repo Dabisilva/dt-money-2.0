@@ -1,9 +1,9 @@
-import * as Dialog from '@radix-ui/react-dialog'
-import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
-import { useForm, Controller } from 'react-hook-form'
-import * as zod from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useTransaction } from '../../context/TransactionsContext'
+import * as Dialog from "@radix-ui/react-dialog";
+import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
+import { useForm, Controller } from "react-hook-form";
+import * as zod from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTransaction } from "../../context/TransactionsContext";
 
 import {
   CloseButton,
@@ -11,19 +11,25 @@ import {
   Overlay,
   TransactionType,
   TransactionTypeButton,
-} from './styles'
+} from "./styles";
 
 const newTransactionFormSchema = zod.object({
   description: zod.string(),
   price: zod.number(),
   category: zod.string(),
-  type: zod.enum(['income', 'outcome']),
-})
+  type: zod.enum(["income", "outcome"]),
+});
 
-type NewTransactionFormInputs = zod.infer<typeof newTransactionFormSchema>
+type NewTransactionFormInputs = zod.infer<typeof newTransactionFormSchema>;
 
-export function NewTransactionModal() {
-  const { createNewTransaction } = useTransaction()
+interface NewTransactionModalProps {
+  handleTransactionModalOpenChange: (value: boolean) => void;
+}
+
+export function NewTransactionModal({
+  handleTransactionModalOpenChange,
+}: NewTransactionModalProps) {
+  const { createNewTransaction } = useTransaction();
   const {
     control,
     register,
@@ -32,12 +38,12 @@ export function NewTransactionModal() {
     formState: { isSubmitting },
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
-  })
+  });
 
   async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-    createNewTransaction(data)
-
-    reset()
+    createNewTransaction(data);
+    reset();
+    handleTransactionModalOpenChange(false);
   }
 
   return (
@@ -56,19 +62,19 @@ export function NewTransactionModal() {
             type="text"
             placeholder="Descrição"
             required
-            {...register('description')}
+            {...register("description")}
           />
           <input
             type="number"
             placeholder="Preço"
             required
-            {...register('price', { valueAsNumber: true })}
+            {...register("price", { valueAsNumber: true })}
           />
           <input
             type="text"
             placeholder="Categoria"
             required
-            {...register('category')}
+            {...register("category")}
           />
 
           <Controller
@@ -89,7 +95,7 @@ export function NewTransactionModal() {
                     Saída
                   </TransactionTypeButton>
                 </TransactionType>
-              )
+              );
             }}
           />
 
@@ -99,5 +105,5 @@ export function NewTransactionModal() {
         </form>
       </Content>
     </Dialog.Portal>
-  )
+  );
 }

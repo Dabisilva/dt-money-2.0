@@ -31,6 +31,22 @@
       "type": "income",
       "createdAt": "2023-05-25T13:31:43.639Z",
       "id": 4
+    },
+    {
+      "description": "Roupas",
+      "category": "compras",
+      "price": 300,
+      "type": "outcome",
+      "createdAt": "2023-05-25T13:42:53.624Z",
+      "id": 5
+    },
+    {
+      "description": "Tenis",
+      "category": "compras",
+      "price": 300,
+      "type": "outcome",
+      "createdAt": "2023-05-25T13:43:29.478Z",
+      "id": 6
     }
   ]
 }
