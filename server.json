@@ -1,0 +1,36 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2023-05-23T11:42:00.346Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburguer",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 59,
+      "createdAt": "2023-05-10T11:42:00.346Z"
+    },
+    {
+      "description": "Novo sapato",
+      "category": "Comptas",
+      "price": 200,
+      "type": "outcome",
+      "createdAt": "2023-05-25T13:22:34.442Z",
+      "id": 3
+    },
+    {
+      "description": "Desenvolvimento de app",
+      "category": "Desenvolvimento",
+      "price": 20000,
+      "type": "income",
+      "createdAt": "2023-05-25T13:31:43.639Z",
+      "id": 4
+    }
+  ]
+}
